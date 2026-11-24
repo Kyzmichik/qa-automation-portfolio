@@ -1,6 +1,6 @@
 # QA Automation Portfolio — Python · Pytest · Selenium · Requests
 
-![Automated tests](https://github.com/YOUR_GITHUB_USERNAME/qa-automation-portfolio/actions/workflows/tests.yml/badge.svg)
+![Automated tests](https://github.com/Kyzmichik/qa-automation-portfolio/actions/workflows/tests.yml/badge.svg)
 
 Test automation project by **Ihor Koval** (QA Engineer, Valencia, Spain).  
 It shows UI and API test automation built with Python, using practices from real QA work:
@@ -37,7 +37,7 @@ Page Object Model, explicit waits, data-driven tests, smoke/regression suites, a
 
 ## How to run locally
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/qa-automation-portfolio.git
+git clone https://github.com/Kyzmichik/qa-automation-portfolio.git
 cd qa-automation-portfolio
 python -m venv .venv
 .venv\Scripts\activate          # Windows  (macOS/Linux: source .venv/bin/activate)

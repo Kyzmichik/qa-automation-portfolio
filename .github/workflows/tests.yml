@@ -1,0 +1,36 @@
+name: Automated tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * 1"
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [api, ui]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run ${{ matrix.suite }} tests
+        run: pytest -m ${{ matrix.suite }} --html=reports/${{ matrix.suite }}-report.html --self-contained-html
+      - name: Upload HTML report and screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.suite }}-report
+          path: |
+            reports/
+            screenshots/
+          if-no-files-found: ignore
